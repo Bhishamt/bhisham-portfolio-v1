@@ -81,7 +81,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
           >
-            Let's build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">exceptional</span>
+            Let&apos;s build something <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">exceptional</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -157,7 +157,7 @@ export default function Contact() {
               >
                 <CheckCircle className="w-12 h-12 text-emerald-400" />
                 <h3 className="text-xl font-bold text-white">Message sent!</h3>
-                <p className="text-zinc-400 text-sm">I'll get back to you within 24 hours. Looking forward to connecting.</p>
+                <p className="text-zinc-400 text-sm">I&apos;ll get back to you within 24 hours. Looking forward to connecting.</p>
                 <button
                   onClick={() => { setStatus("idle"); setForm({ name: "", email: "", message: "" }); }}
                   className="text-sm text-zinc-500 hover:text-white transition-colors underline underline-offset-4"

@@ -42,17 +42,17 @@ export default function About() {
               <div className="p-6 font-mono text-sm leading-relaxed">
                 <div className="text-purple-400">const <span className="text-blue-300">engineer</span> <span className="text-white">= {"{"}</span></div>
                 <div className="pl-4 text-zinc-400">
-                  <span className="text-emerald-400">name</span>: <span className="text-amber-300">"Bhisham Thakur"</span>,
+                  <span className="text-emerald-400">name</span>: <span className="text-amber-300">&quot;Bhisham Thakur&quot;</span>,
                 </div>
                 <div className="pl-4 text-zinc-400">
-                  <span className="text-emerald-400">role</span>: <span className="text-amber-300">"Software Engineer"</span>,
+                  <span className="text-emerald-400">role</span>: <span className="text-amber-300">&quot;Software Engineer&quot;</span>,
                 </div>
                 <div className="pl-4 text-zinc-400">
                   <span className="text-emerald-400">focus</span>: [
                   <div className="pl-4">
-                    <span className="text-amber-300">"AI Engineering"</span>,<br/>
-                    <span className="text-amber-300">"Full Stack Dev"</span>,<br/>
-                    <span className="text-amber-300">"Automation"</span>,
+                    <span className="text-amber-300">&quot;AI Engineering&quot;</span>,<br/>
+                    <span className="text-amber-300">&quot;Full Stack Dev&quot;</span>,<br/>
+                    <span className="text-amber-300">&quot;Automation&quot;</span>,
                   </div>
                   ],
                 </div>
@@ -60,10 +60,10 @@ export default function About() {
                   <span className="text-emerald-400">available</span>: <span className="text-blue-400">true</span>,
                 </div>
                 <div className="pl-4 text-zinc-400">
-                  <span className="text-emerald-400">mission</span>: <span className="text-amber-300">"Eliminate friction through engineering"</span>,
+                  <span className="text-emerald-400">mission</span>: <span className="text-amber-300">&quot;Eliminate friction through engineering&quot;</span>,
                 </div>
                 <div className="text-white">{"}"};</div>
-                <div className="mt-4 text-zinc-600">// Currently building the future</div>
+                <div className="mt-4 text-zinc-600">{"// Currently building the future"}</div>
                 <div className="mt-1 flex items-center gap-1">
                   <span className="text-blue-400">▶</span>
                   <span className="text-zinc-400 animate-pulse">_</span>
@@ -90,11 +90,11 @@ export default function About() {
             </motion.h2>
 
             <motion.p variants={itemVariants} className="text-lg text-zinc-400 leading-relaxed">
-              My engineering journey didn't start with code — it started with curiosity. From ethical hacking and exploring operating systems to understanding how the web actually works, I've always needed to know what happens behind the screen.
+              My engineering journey didn&apos;t start with code — it started with curiosity. From ethical hacking and exploring operating systems to understanding how the web actually works, I&apos;ve always needed to know what happens behind the screen.
             </motion.p>
 
             <motion.p variants={itemVariants} className="text-lg text-zinc-400 leading-relaxed">
-              That curiosity evolved into a discipline. I don't write code to complete tasks — I build systems to solve problems. Whether that's automating a 5-hour manual process into a 5-second script, or architecting a robust backend for a campus platform handling hundreds of users, my focus is always on scalable, resilient engineering.
+              That curiosity evolved into a discipline. I don&apos;t write code to complete tasks — I build systems to solve problems. Whether that&apos;s automating a 5-hour manual process into a 5-second script, or architecting a robust backend for a campus platform handling hundreds of users, my focus is always on scalable, resilient engineering.
             </motion.p>
 
             <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">

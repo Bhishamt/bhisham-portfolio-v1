@@ -80,7 +80,7 @@ export default function TechStack() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-zinc-400 mt-4 max-w-xl text-lg"
           >
-            Skills grouped by discipline — each linked to projects where it's been applied.
+            Skills grouped by discipline — each linked to projects where it&apos;s been applied.
           </motion.p>
         </div>
 
