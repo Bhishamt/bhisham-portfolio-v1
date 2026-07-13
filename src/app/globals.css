@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color System - Backgrounds */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #0b0b0d;
+  --color-bg-tertiary: #101114;
+  --color-bg-glass: rgba(255, 255, 255, 0.04);
+  --color-bg-overlay: rgba(0, 0, 0, 0.65);
+
+  /* Color System - Surfaces */
+  --color-surface-default: #101114;
+  --color-surface-elevated: #1a1b1e;
+  --color-surface-hover: #232428;
+  --color-surface-active: #2c2d32;
+  --color-surface-selected: #34353a;
+  --color-surface-disabled: #101114;
+  --color-surface-inverse: #ffffff;
+
+  /* Color System - Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-text-disabled: #52525b;
+  --color-text-inverse: #050505;
+  --color-text-link: #3b82f6;
+
+  /* Color System - Accents */
+  --color-accent-blue: #3b82f6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-success: #10b981;
+  --color-accent-warning: #f59e0b;
+  --color-accent-danger: #ef4444;
+  --color-accent-info: #0ea5e9;
+
+  /* Typography Fonts */
+  --font-sans: var(--font-geist-sans), "Inter", sans-serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
+
+  /* Border Radius */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Custom Spacing Scale */
+  --spacing-0: 0px;
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-160: 160px;
+  --spacing-192: 192px;
+
+  /* Easing curves */
+  --animate-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --animate-ease-out: 260ms cubic-bezier(0, 0, 0.2, 1);
+  --animate-ease-in-out: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Transitions */
+  --transition-instant: 120ms;
+  --transition-fast: 180ms;
+  --transition-normal: 260ms;
+  --transition-medium: 400ms;
+  --transition-slow: 700ms;
+  --transition-hero: 900ms;
+  --transition-max: 1200ms;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bg-primary);
+    --foreground: var(--color-text-primary);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Lenis smooth scroll specific styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
