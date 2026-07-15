@@ -92,10 +92,10 @@ For detailed deployment instructions, check the [Next.js Deployment Documentatio
 
 ## 📧 Contact
 
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
-- **Portfolio**: [Live Site URL]
+- **Email**: [Bhishamthakur96@gmail.com]
+- **LinkedIn**: https://www.linkedin.com/in/bhisham-thakur-17a240322/
+- **GitHub**: https://github.com/Bhishamt
+- **Portfolio**:https://bhisham-portfolio-v1-94rc.vercel.app/ 
 
 ## 📝 License
 
