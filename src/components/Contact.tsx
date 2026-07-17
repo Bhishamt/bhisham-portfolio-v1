@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Send, CheckCircle, Download } from "lucide-react";
+import { Mail, Github, Linkedin, Send, CheckCircle, Download, X } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -23,9 +23,19 @@ export default function Contact() {
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
     setStatus("sending");
-    // Simulate async submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("sent");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to send");
+      setStatus("sent");
+    } catch (err) {
+      console.error("Contact form error:", err);
+      setStatus("error");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -163,6 +173,22 @@ export default function Contact() {
                   className="text-sm text-zinc-500 hover:text-white transition-colors underline underline-offset-4"
                 >
                   Send another
+                </button>
+              </motion.div>
+            ) : status === "error" ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="glass-panel border border-red-400/20 rounded-2xl p-10 flex flex-col items-center justify-center gap-4 text-center h-full min-h-[300px]"
+              >
+                <X className="w-12 h-12 text-red-400" />
+                <h3 className="text-xl font-bold text-white">Failed to send</h3>
+                <p className="text-zinc-400 text-sm">Something went wrong. Please email me directly at bhishamthakur012@gmail.com or try again.</p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="text-sm text-zinc-500 hover:text-white transition-colors underline underline-offset-4"
+                >
+                  Try again
                 </button>
               </motion.div>
             ) : (

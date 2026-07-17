@@ -1,7 +1,6 @@
 "use client";
 
-// This component is loaded ONLY on the client (dynamic import with ssr: false).
-// Math.random() is safe here — it only ever runs in the browser.
+import { useEffect, useState } from "react";
 
 const LEVELS = [
   "bg-zinc-900",
@@ -11,37 +10,93 @@ const LEVELS = [
   "bg-blue-400",
 ];
 
-function getLevel(): string {
-  const r = Math.random();
-  if (r > 0.85) return LEVELS[4];
-  if (r > 0.65) return LEVELS[3];
-  if (r > 0.45) return LEVELS[2];
-  if (r > 0.30) return LEVELS[1];
-  return LEVELS[0];
+interface Day {
+  count: number;
+  level: number;
+  date: string;
+}
+
+interface Week {
+  days: Day[];
+}
+
+interface ContributionData {
+  total: number;
+  weeks: Week[];
+}
+
+function fetchContributions(
+  username: string,
+  year: number
+): Promise<ContributionData> {
+  const proxy = `https://api.allorigins.win/raw?url=`;
+  const target = `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`;
+
+  return fetch(proxy + encodeURIComponent(target))
+    .then((r) => {
+      if (!r.ok) throw new Error("API error");
+      return r.json();
+    })
+    .catch(() =>
+      fetch(target).then((r) => {
+        if (!r.ok) throw new Error("API error");
+        return r.json();
+      })
+    );
 }
 
 export default function ContributionGraph() {
+  const [data, setData] = useState<ContributionData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const year = new Date().getFullYear();
+    fetchContributions("Bhishamt", year)
+      .then(setData)
+      .catch(() =>
+        fetchContributions("Bhishamt", year - 1).then(setData)
+      )
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return <div className="h-[124px] w-full rounded bg-white/[0.02] animate-pulse" />;
+  }
+
+  if (!data) {
+    return (
+      <div className="text-sm text-zinc-600 font-mono text-center py-8">
+        Could not load contribution data. Connect your GitHub to see activity.
+      </div>
+    );
+  }
+
+  const weeks = data.weeks ?? [];
+
   return (
     <div className="overflow-x-auto">
       <div className="flex gap-1 min-w-[600px]">
-        {Array.from({ length: 52 }, (_, week) => (
-          <div key={week} className="flex flex-col gap-1">
-            {Array.from({ length: 7 }, (_, day) => (
+        {weeks.map((week, wi) => (
+          <div key={wi} className="flex flex-col gap-1">
+            {(week.days ?? []).map((day, di) => (
               <div
-                key={day}
-                className={`w-3 h-3 rounded-[2px] ${getLevel()} transition-colors hover:opacity-80`}
-                title={`Week ${week + 1}, Day ${day + 1}`}
+                key={di}
+                className={`w-3 h-3 rounded-[2px] ${LEVELS[day.level] ?? LEVELS[0]} transition-colors hover:opacity-80`}
+                title={`${day.date}: ${day.count} contributions`}
               />
             ))}
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-2 mt-3 text-xs text-zinc-600 font-mono">
-        <span>Less</span>
-        {LEVELS.map((c, i) => (
-          <div key={i} className={`w-3 h-3 rounded-[2px] ${c}`} />
-        ))}
-        <span>More</span>
+      <div className="flex items-center justify-between mt-3 text-xs text-zinc-600 font-mono">
+        <span>{data.total?.toLocaleString() ?? 0} contributions in the last year</span>
+        <div className="flex items-center gap-1">
+          <span>Less</span>
+          {LEVELS.map((c, i) => (
+            <div key={i} className={`w-3 h-3 rounded-[2px] ${c}`} />
+          ))}
+          <span>More</span>
+        </div>
       </div>
     </div>
   );
