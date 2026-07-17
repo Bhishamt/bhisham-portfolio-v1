@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bhisham.vercel.app"),
   title: "Bhisham Thakur | Software Engineer",
   description:
     "Personal portfolio of Bhisham Thakur, an AI-focused Software Engineer building full-stack applications and AI-driven automation pipelines.",
