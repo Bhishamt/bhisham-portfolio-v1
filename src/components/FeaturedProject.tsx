@@ -136,7 +136,7 @@ export default function FeaturedProject() {
                 View Demo
                 <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
-              <a href="#" className="interactive inline-flex items-center gap-2 px-5 py-2.5 glass-panel border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
+              <a href="https://github.com/Bhishamt/Smart-Attendance-System" target="_blank" rel="noopener noreferrer" className="interactive inline-flex items-center gap-2 px-5 py-2.5 glass-panel border border-white/15 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
                 <Github className="w-4 h-4" />
                 Source Code
               </a>

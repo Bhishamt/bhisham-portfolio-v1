@@ -17,7 +17,49 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Bhisham Thakur | Software Engineer",
-  description: "Personal portfolio of Bhisham Thakur, an AI-focused Software Engineer.",
+  description:
+    "Personal portfolio of Bhisham Thakur, an AI-focused Software Engineer building full-stack applications and AI-driven automation pipelines.",
+  keywords: [
+    "Bhisham Thakur",
+    "Software Engineer",
+    "Full Stack Developer",
+    "AI Engineer",
+    "React",
+    "Python",
+    "TypeScript",
+    "Portfolio",
+  ],
+  openGraph: {
+    title: "Bhisham Thakur | Software Engineer",
+    description:
+      "Building full-stack applications and AI-driven automation pipelines. Engineering smart solutions, automating the future.",
+    url: "https://bhisham.vercel.app",
+    type: "website",
+    locale: "en_US",
+    siteName: "Bhisham Thakur",
+    images: [
+      {
+        url: "/assets/editedi_mg.png",
+        width: 800,
+        height: 800,
+        alt: "Bhisham Thakur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bhisham Thakur | Software Engineer",
+    description:
+      "Building full-stack applications and AI-driven automation pipelines.",
+    images: ["/assets/editedi_mg.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://bhisham.vercel.app",
+  },
 };
 
 export default function RootLayout({

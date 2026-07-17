@@ -97,8 +97,8 @@ export default function Home() {
 
               <div className="flex items-center gap-2 ml-auto sm:ml-2">
                 {[
-                  { icon: Github, href: "https://github.com/Bhisham-Thakur", label: "GitHub" },
-                  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                  { icon: Github, href: "https://github.com/Bhishamt", label: "GitHub" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/in/bhisham-thakur-17a240322/", label: "LinkedIn" },
                   { icon: Mail, href: "mailto:bhishamthakur012@gmail.com", label: "Email" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
@@ -156,7 +156,7 @@ export default function Home() {
                   fill
                   className="object-cover object-top"
                   priority
-                  onError={() => {}}
+                  onError={(e) => { const t = e.currentTarget; t.style.display = "none"; }}
                 />
               </div>
 

@@ -59,8 +59,8 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/bhisham-thakur",
-      href: "https://linkedin.com",
+      value: "linkedin.com/in/bhisham-thakur-17a240322",
+      href: "https://www.linkedin.com/in/bhisham-thakur-17a240322/",
     },
   ];
 

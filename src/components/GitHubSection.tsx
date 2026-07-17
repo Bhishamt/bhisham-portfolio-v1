@@ -15,38 +15,38 @@ const ContributionGraph = dynamic(() => import("./ContributionGraph"), {
 
 const repos = [
   {
-    name: "smart-campus-platform",
+    name: "Smart-Attendance-System",
     description:
       "Full-stack campus administration ecosystem with 4-tier RBAC (Admin, HOD, Teacher, Student), real-time subscriptions, and AI-assisted student support.",
     language: "TypeScript",
     langColor: "#3178c6",
     stars: 0,
     forks: 0,
-    url: "https://github.com/Bhisham-Thakur",
+    url: "https://github.com/Bhishamt/Smart-Attendance-System",
     topics: ["react", "next.js", "supabase", "postgresql"],
     featured: true,
   },
   {
-    name: "intelligent-workflow-assistant",
+    name: "AI-Resume-Intelligence-System",
     description:
       "Python-based AI engine that translates natural language to executable system commands via LLM API integration.",
     language: "Python",
     langColor: "#3572A5",
     stars: 0,
     forks: 0,
-    url: "https://github.com/Bhisham-Thakur",
+    url: "https://github.com/Bhishamt/AI-Resume-Intelligence-System",
     topics: ["python", "ai", "gemini", "automation"],
     featured: true,
   },
   {
-    name: "automated-data-pipeline",
+    name: "web-scraper-ai",
     description:
       "Resilient web scraping pipeline with exponential backoff, dynamic DOM handling, and CSV/JSON export.",
     language: "Python",
     langColor: "#3572A5",
     stars: 0,
     forks: 0,
-    url: "https://github.com/Bhisham-Thakur",
+    url: "https://github.com/Bhishamt/web-scraper-ai",
     topics: ["python", "beautifulsoup", "pandas", "scraping"],
     featured: false,
   },
@@ -83,7 +83,7 @@ export default function GitHub() {
             </motion.h2>
           </div>
           <motion.a
-            href="https://github.com/Bhisham-Thakur"
+            href="https://github.com/Bhishamt"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0 }}
@@ -107,7 +107,7 @@ export default function GitHub() {
         >
           <div className="flex items-center justify-between mb-4">
             <span className="text-sm font-mono text-zinc-400">
-              bhisham-thakur — Contribution Activity
+              Bhishamt — Contribution Activity
             </span>
             <span className="text-xs font-mono text-zinc-600">2024 – 2026</span>
           </div>
