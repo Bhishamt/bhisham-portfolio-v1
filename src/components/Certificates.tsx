@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, BadgeCheck } from "lucide-react";
+import { X, BadgeCheck } from "lucide-react";
 
 const certificates = [
   {

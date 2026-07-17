@@ -198,10 +198,11 @@ export default function Contact() {
                   { name: "email", label: "Email", type: "email", placeholder: "your@email.com" },
                 ].map((field) => (
                   <div key={field.name}>
-                    <label className="block text-xs font-mono text-zinc-500 mb-2 uppercase tracking-widest">
+                    <label htmlFor={field.name} className="block text-xs font-mono text-zinc-500 mb-2 uppercase tracking-widest">
                       {field.label}
                     </label>
                     <input
+                      id={field.name}
                       type={field.type}
                       name={field.name}
                       value={form[field.name as keyof typeof form]}
@@ -218,8 +219,9 @@ export default function Contact() {
                 ))}
 
                 <div>
-                  <label className="block text-xs font-mono text-zinc-500 mb-2 uppercase tracking-widest">Message</label>
+                  <label htmlFor="message" className="block text-xs font-mono text-zinc-500 mb-2 uppercase tracking-widest">Message</label>
                   <textarea
+                    id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}

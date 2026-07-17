@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Download, Briefcase } from "lucide-react";
+import { Menu, X, Github, Download } from "lucide-react";
 
 const navLinks = [
   { label: "Projects", href: "#projects" },

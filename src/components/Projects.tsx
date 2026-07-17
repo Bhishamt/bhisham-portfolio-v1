@@ -128,12 +128,10 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center ${
-                project.layout === "right" ? "lg:[direction:rtl]" : ""
-              }`}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}
             >
               {/* Visual Panel */}
-              <div className={`col-span-1 lg:col-span-6 ${project.layout === "right" ? "[direction:ltr]" : ""}`}>
+              <div className={`col-span-1 lg:col-span-6 ${project.layout === "right" ? "lg:order-2" : ""}`}>
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden glass-panel border border-white/10 group">
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
@@ -171,7 +169,7 @@ export default function Projects() {
               </div>
 
               {/* Content Panel */}
-              <div className={`col-span-1 lg:col-span-6 space-y-6 ${project.layout === "right" ? "[direction:ltr]" : ""}`}>
+              <div className={`col-span-1 lg:col-span-6 space-y-6 ${project.layout === "right" ? "lg:order-1" : ""}`}>
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="text-xs font-mono text-zinc-500">— {project.category}</span>
                   <span className={`text-xs font-mono px-2 py-0.5 rounded-full border ${statusColors[project.statusColor]}`}>
