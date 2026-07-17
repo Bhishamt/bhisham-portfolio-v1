@@ -8,9 +8,10 @@ This portfolio demonstrates my expertise in full-stack development with a focus 
 
 ## 🛠 Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org) - React framework for production-grade applications
-- **Language**: TypeScript (96.1%) - Type-safe JavaScript development
-- **Styling**: CSS (3.3%) - Custom styling and animations
+- **Framework**: [Next.js](https://nextjs.org) 16 (App Router) - React framework for production-grade applications
+- **Language**: TypeScript - Type-safe JavaScript development
+- **Styling**: Tailwind CSS v4 with glassmorphism design system
+- **Animation**: Framer Motion, GSAP (ScrollTrigger), Lenis smooth scroll
 - **Runtime**: Node.js
 
 ## 📋 Features
@@ -60,10 +61,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
 
 ```
 src/
-├── app/          # Next.js app directory
-├── components/   # Reusable React components
-├── pages/        # Application pages
-└── styles/       # CSS and styling
+├── app/
+│   ├── api/contact/   # Contact form API route
+│   ├── globals.css    # Global styles and design tokens
+│   ├── layout.tsx     # Root layout with SEO metadata
+│   └── page.tsx       # Home page with all sections
+├── components/
+│   ├── About.tsx              # About section with terminal UI
+│   ├── Certificates.tsx       # Certifications with modal view
+│   ├── Contact.tsx            # Contact form with social links
+│   ├── ContributionGraph.tsx  # GitHub contribution chart
+│   ├── Cursor.tsx             # Custom cursor with glow effect
+│   ├── ExperienceTimeline.tsx # Work/education timeline
+│   ├── FeaturedProject.tsx    # Featured case study
+│   ├── Footer.tsx             # Site footer with links
+│   ├── GitHubSection.tsx      # GitHub repos showcase
+│   ├── LenisProvider.tsx      # Smooth scroll provider
+│   ├── Navigation.tsx         # Navbar with mobile drawer
+│   ├── Projects.tsx           # Project showcase grid
+│   └── TechStack.tsx          # Skills and technologies
+└── public/assets/   # Static assets (resume, profile image)
 ```
 
 ## 🔧 Development

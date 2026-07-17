@@ -32,29 +32,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (process.env.RESEND_API_KEY) {
-      const { Resend } = await import("resend");
-      const resend = new Resend(process.env.RESEND_API_KEY);
-
-      const { error } = await resend.emails.send({
-        from: `Portfolio Contact <onboarding@resend.dev>`,
-        to: "bhishamthakur012@gmail.com",
-        subject: `Portfolio Contact from ${name}`,
-        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        replyTo: email,
-      });
-
-      if (error) {
-        console.error("Resend error:", error);
-        return NextResponse.json(
-          { error: "Failed to send message" },
-          { status: 500 }
-        );
-      }
-
-      return NextResponse.json({ success: true });
-    }
-
     if (process.env.WEB3FORMS_KEY) {
       const formResponse = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -85,7 +62,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      info: "Message logged. Configure RESEND_API_KEY or WEB3FORMS_KEY in .env to send real emails.",
+      info: "Message logged. Set WEB3FORMS_KEY in .env.local to send real emails.",
     });
   } catch (error) {
     console.error("Contact API error:", error);

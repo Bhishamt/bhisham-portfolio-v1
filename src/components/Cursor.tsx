@@ -8,6 +8,10 @@ export default function Cursor() {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) {
+      return;
+    }
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -15,20 +19,20 @@ export default function Cursor() {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
-        target.tagName.toLowerCase() === "button" ||
-        target.tagName.toLowerCase() === "a" ||
+        target.tagName === "BUTTON" ||
+        target.tagName === "A" ||
         target.closest("button") ||
         target.closest("a") ||
         target.classList.contains("interactive")
       ) {
         setIsHovering(true);
-      } else {
-        setIsHovering(false);
+        return;
       }
+      setIsHovering(false);
     };
 
-    window.addEventListener("mousemove", updateMousePosition);
-    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mousemove", updateMousePosition, { passive: true });
+    window.addEventListener("mouseover", handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
